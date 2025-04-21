@@ -7,15 +7,40 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>🤠 Yeehaw Alysha!</h1>
-        <p class="message">Happy Birthday to the queen of country tunes, line dances, and all the jokes you crack.<br>
-        You make work a blast and gossip sessions legendary.<br>
-        Here's to more laughs, twirls, and TikTok-worthy moments!</p>
-        <p class="signoff">Love,<br><em>Your favorite partner-in-office-crimes.</em> 💃🫖</p>
-        <button onclick="revealTea()">☕ Spill the Tea</button>
-        <p id="tea" class="hidden">You're the reason Zoom meetings are bearable. Never change. 💅</p>
-    </div>
-    <script src="script.js"></script>
+
+<h1>Yeehaw Alysha! 🤠</h1>
+<p>Happy Birthday to the queen of country tunes, line dances, and all the jokes you crack.<br>
+You make work a blast — sitting next to you means non-stop laughs and legendary gossip sessions.<br>
+Here’s to more laughter, twirls, and TikTok-worthy moments!</p>
+<p><strong>Love,<br>Your favorite partner-in-office-crimes 💃🫖</strong></p>
+
+
+<audio id="bg-music" autoplay loop>
+  <source src="country_music.mp3" type="audio/mpeg">
+</audio>
+<button onclick="toggleMusic()">🎵 Toggle Music</button>
+<canvas id="confetti-canvas"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+  const music = document.getElementById('bg-music');
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+
+  // Confetti burst on load
+  window.onload = () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  };
+</script>
 </body>
+
 </html>
+
